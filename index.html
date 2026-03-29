@@ -248,36 +248,200 @@
   </section>
 
   <!-- ===== 7) GUEST FORM ===== -->
-  <div class="wgap" aria-hidden="true"></div>
-
-  <section class="wform" id="rsvp" aria-label="Guest form" data-anim="fade">
-    <div class="wform-card">
-      <div class="wform-wrap">
-
-        <div class="wform-heading" data-i18n="rsvp.title">АНКЕТА ГОСТЯ</div>
-
-        <div class="wform-text">
-          <div class="wform-deadline">
-            <span data-i18n="rsvp.deadline_pre">Пожалуйста, подтвердите свое присутствие до</span>
-            <div class="wform-date" data-i18n="rsvp.deadline_date">25 мая 2026 года</div>
+<div class="wgap" aria-hidden="true"></div>
+ 
+<section class="wform" id="rsvp" aria-label="Guest form" data-anim="fade">
+  <div class="wform-card">
+    <div class="wform-wrap">
+ 
+      <div class="wform-heading" data-i18n="rsvp.title">АНКЕТА ГОСТЯ</div>
+ 
+      <div class="wform-sub">
+        <p class="wform-sub-title" data-i18n="rsvp.sub_title">Мы с нетерпением ждём встречи с вами!</p>
+        <p class="wform-sub-text" data-i18n="rsvp.sub_text">Если вы планируете прийти с гостем или у вас есть особые диетические предпочтения, пожалуйста, укажите это в форме ниже.</p>
+        <div class="wform-deadline">
+          <span data-i18n="rsvp.deadline_pre">Пожалуйста, подтвердите своё присутствие до</span>
+          <span class="wform-date" data-i18n="rsvp.deadline_date">25 мая 2026 года</span>
+        </div>
+      </div>
+ 
+      <!-- FORM -->
+      <div class="wrsvp" id="wrsvp-form-area">
+ 
+        <!-- Step: name -->
+        <div class="wrsvp-step" id="wrsvp-step-name">
+          <div class="wrsvp-row wrsvp-row--2">
+            <div class="wrsvp-field">
+              <label class="wrsvp-label" for="rf-fname" data-i18n="rsvp.fname">Имя</label>
+              <input class="wrsvp-input" id="rf-fname" type="text" autocomplete="given-name" required />
+              <span class="wrsvp-err" data-i18n="rsvp.err_required">Обязательное поле</span>
+            </div>
+            <div class="wrsvp-field">
+              <label class="wrsvp-label" for="rf-lname" data-i18n="rsvp.lname">Фамилия</label>
+              <input class="wrsvp-input" id="rf-lname" type="text" autocomplete="family-name" required />
+              <span class="wrsvp-err" data-i18n="rsvp.err_required">Обязательное поле</span>
+            </div>
+          </div>
+ 
+          <div class="wrsvp-field wrsvp-field--mt">
+            <label class="wrsvp-label" data-i18n="rsvp.attending_q">Будете ли вы присутствовать?</label>
+            <div class="wrsvp-radios">
+              <label class="wrsvp-radio">
+                <input type="radio" name="attending" value="yes" />
+                <span class="wrsvp-radio-box"></span>
+                <span class="wrsvp-radio-text" data-i18n="rsvp.attending_yes">Конечно да!</span>
+              </label>
+              <label class="wrsvp-radio">
+                <input type="radio" name="attending" value="no" />
+                <span class="wrsvp-radio-box"></span>
+                <span class="wrsvp-radio-text" data-i18n="rsvp.attending_no">К сожалению, нет</span>
+              </label>
+              <label class="wrsvp-radio">
+                <input type="radio" name="attending" value="maybe" />
+                <span class="wrsvp-radio-box"></span>
+                <span class="wrsvp-radio-text" data-i18n="rsvp.attending_maybe">Пока не знаю. Дам ответ чуть позже</span>
+              </label>
+            </div>
+            <span class="wrsvp-err" data-i18n="rsvp.err_required">Обязательное поле</span>
+          </div>
+ 
+          <div class="wrsvp-actions">
+            <button class="wrsvp-btn" type="button" id="wrsvp-btn-next1" data-i18n="rsvp.btn_next">Далее →</button>
           </div>
         </div>
-
-        <div class="wform-embed">
-          <iframe
-            class="wform-iframe"
-            src="https://docs.google.com/forms/d/e/1FAIpQLSc8PIfuGQh0vW2VMZR1k88vIn-YkcLolPuCEzirz4BUVf0AjA/viewform?embedded=true"
-            title="Анкета гостя"
-            loading="lazy"
-          >
-            Загрузка…
-          </iframe>
+ 
+        <!-- Branch YES -->
+        <div class="wrsvp-step wrsvp-step--hidden" id="wrsvp-branch-yes">
+ 
+          <div class="wrsvp-field">
+            <label class="wrsvp-label" for="rf-diet" data-i18n="rsvp.diet_q">Есть ли у вас ограничения в питании или аллергии?</label>
+            <input class="wrsvp-input" id="rf-diet" type="text" data-i18n-ph="rsvp.diet_ph" placeholder="Например: нет глютена, орехи…" />
+          </div>
+ 
+          <div class="wrsvp-field wrsvp-field--mt">
+            <label class="wrsvp-label" data-i18n="rsvp.drinks_q">Отметьте предпочтения по напиткам <span class="wrsvp-req">*</span></label>
+            <p class="wrsvp-hint" data-i18n="rsvp.drinks_hint">Можно выбрать несколько вариантов</p>
+            <div class="wrsvp-checks">
+              <label class="wrsvp-check"><input type="checkbox" name="drinks" value="sparkling" /><span class="wrsvp-check-box"></span><span data-i18n="rsvp.drink_sparkling">Игристое</span></label>
+              <label class="wrsvp-check"><input type="checkbox" name="drinks" value="white_wine" /><span class="wrsvp-check-box"></span><span data-i18n="rsvp.drink_white">Вино белое</span></label>
+              <label class="wrsvp-check"><input type="checkbox" name="drinks" value="red_wine" /><span class="wrsvp-check-box"></span><span data-i18n="rsvp.drink_red">Вино красное</span></label>
+              <label class="wrsvp-check"><input type="checkbox" name="drinks" value="cognac" /><span class="wrsvp-check-box"></span><span data-i18n="rsvp.drink_cognac">Коньяк</span></label>
+              <label class="wrsvp-check"><input type="checkbox" name="drinks" value="whisky" /><span class="wrsvp-check-box"></span><span data-i18n="rsvp.drink_whisky">Виски</span></label>
+              <label class="wrsvp-check"><input type="checkbox" name="drinks" value="vodka" /><span class="wrsvp-check-box"></span><span data-i18n="rsvp.drink_vodka">Водка</span></label>
+              <label class="wrsvp-check"><input type="checkbox" name="drinks" value="no_alcohol" /><span class="wrsvp-check-box"></span><span data-i18n="rsvp.drink_none">Не пью алкоголь</span></label>
+              <label class="wrsvp-check wrsvp-check--other">
+                <input type="checkbox" name="drinks" value="other_drink" id="rf-drinks-other-cb" />
+                <span class="wrsvp-check-box"></span>
+                <span data-i18n="rsvp.drink_other">Другое:</span>
+                <input class="wrsvp-input wrsvp-input--inline" id="rf-drinks-other-text" type="text" disabled data-i18n-ph="rsvp.drink_other_ph" placeholder="Укажите…" />
+              </label>
+            </div>
+            <span class="wrsvp-err" id="wrsvp-err-drinks" data-i18n="rsvp.err_drinks">Пожалуйста, выберите хотя бы один вариант</span>
+          </div>
+ 
+          <div class="wrsvp-field wrsvp-field--mt">
+            <label class="wrsvp-label" data-i18n="rsvp.plus_one_q">Приведёте ли вы с собой гостя?</label>
+            <div class="wrsvp-radios">
+              <label class="wrsvp-radio">
+                <input type="radio" name="plus_one" value="yes" />
+                <span class="wrsvp-radio-box"></span>
+                <span class="wrsvp-radio-text" data-i18n="rsvp.yes">Да</span>
+              </label>
+              <label class="wrsvp-radio">
+                <input type="radio" name="plus_one" value="no" />
+                <span class="wrsvp-radio-box"></span>
+                <span class="wrsvp-radio-text" data-i18n="rsvp.no">Нет</span>
+              </label>
+            </div>
+            <span class="wrsvp-err" id="wrsvp-err-plusone" data-i18n="rsvp.err_required">Обязательное поле</span>
+          </div>
+ 
+          <!-- Branch YES + GUEST -->
+          <div class="wrsvp-nested wrsvp-nested--hidden" id="wrsvp-branch-guest">
+            <div class="wrsvp-field wrsvp-field--mt">
+              <label class="wrsvp-label" for="rf-guest-diet" data-i18n="rsvp.guest_diet_q">Есть ли у вашего гостя ограничения в питании или аллергии?</label>
+              <input class="wrsvp-input" id="rf-guest-diet" type="text" data-i18n-ph="rsvp.diet_ph" placeholder="Например: нет глютена, орехи…" />
+            </div>
+ 
+            <div class="wrsvp-field wrsvp-field--mt">
+              <label class="wrsvp-label" data-i18n="rsvp.guest_drinks_q">Отметьте предпочтения вашего гостя по напиткам <span class="wrsvp-req">*</span></label>
+              <p class="wrsvp-hint" data-i18n="rsvp.drinks_hint">Можно выбрать несколько вариантов</p>
+              <div class="wrsvp-checks">
+                <label class="wrsvp-check"><input type="checkbox" name="guest_drinks" value="sparkling" /><span class="wrsvp-check-box"></span><span data-i18n="rsvp.drink_sparkling">Игристое</span></label>
+                <label class="wrsvp-check"><input type="checkbox" name="guest_drinks" value="white_wine" /><span class="wrsvp-check-box"></span><span data-i18n="rsvp.drink_white">Вино белое</span></label>
+                <label class="wrsvp-check"><input type="checkbox" name="guest_drinks" value="red_wine" /><span class="wrsvp-check-box"></span><span data-i18n="rsvp.drink_red">Вино красное</span></label>
+                <label class="wrsvp-check"><input type="checkbox" name="guest_drinks" value="cognac" /><span class="wrsvp-check-box"></span><span data-i18n="rsvp.drink_cognac">Коньяк</span></label>
+                <label class="wrsvp-check"><input type="checkbox" name="guest_drinks" value="whisky" /><span class="wrsvp-check-box"></span><span data-i18n="rsvp.drink_whisky">Виски</span></label>
+                <label class="wrsvp-check"><input type="checkbox" name="guest_drinks" value="vodka" /><span class="wrsvp-check-box"></span><span data-i18n="rsvp.drink_vodka">Водка</span></label>
+                <label class="wrsvp-check"><input type="checkbox" name="guest_drinks" value="no_alcohol" /><span class="wrsvp-check-box"></span><span data-i18n="rsvp.drink_none">Не пью алкоголь</span></label>
+                <label class="wrsvp-check wrsvp-check--other">
+                  <input type="checkbox" name="guest_drinks" value="other_drink" id="rf-guest-drinks-other-cb" />
+                  <span class="wrsvp-check-box"></span>
+                  <span data-i18n="rsvp.drink_other">Другое:</span>
+                  <input class="wrsvp-input wrsvp-input--inline" id="rf-guest-drinks-other-text" type="text" disabled data-i18n-ph="rsvp.drink_other_ph" placeholder="Укажите…" />
+                </label>
+              </div>
+              <span class="wrsvp-err" id="wrsvp-err-guest-drinks" data-i18n="rsvp.err_drinks">Пожалуйста, выберите хотя бы один вариант</span>
+            </div>
+          </div>
+          <!-- /Branch YES + GUEST -->
+ 
+          <div class="wrsvp-field wrsvp-field--mt" id="wrsvp-comments-wrap">
+            <label class="wrsvp-label" for="rf-comments" data-i18n="rsvp.comments_q">Есть ли у вас комментарии или вопросы к нам? ❤️</label>
+            <textarea class="wrsvp-input wrsvp-textarea" id="rf-comments" rows="3"></textarea>
+          </div>
+ 
+          <div class="wrsvp-closing" id="wrsvp-closing-yes">
+            <p class="wrsvp-closing-title" data-i18n="rsvp.closing_yes_title">Мы счастливы, что вы будете с нами в этот день ❤️</p>
+            <p class="wrsvp-closing-sub" data-i18n="rsvp.closing_yes_sub">Ждём вас 19 июня 2026 года!</p>
+            <p class="wrsvp-closing-note" data-i18n="rsvp.closing_yes_note">Не забудьте отправить ваш ответ.</p>
+          </div>
+ 
+          <div class="wrsvp-actions">
+            <button class="wrsvp-btn" type="button" id="wrsvp-btn-submit-yes" data-i18n="rsvp.btn_submit">Отправить ответ</button>
+          </div>
         </div>
-
+        <!-- /Branch YES -->
+ 
+        <!-- Branch NO -->
+        <div class="wrsvp-step wrsvp-step--hidden" id="wrsvp-branch-no">
+          <div class="wrsvp-closing wrsvp-closing--no">
+            <p class="wrsvp-closing-title" data-i18n="rsvp.closing_no_title">Нам очень жаль, что вы не сможете разделить с нами этот день, но мы благодарны за ваш ответ ❤️</p>
+            <p class="wrsvp-closing-sub" data-i18n="rsvp.closing_no_sub">Давайте обязательно встретимся и отпразднуем вместе позже!</p>
+            <p class="wrsvp-closing-note" data-i18n="rsvp.closing_no_note">Не забудьте отправить ваш ответ.</p>
+          </div>
+          <div class="wrsvp-actions">
+            <button class="wrsvp-btn" type="button" id="wrsvp-btn-submit-no" data-i18n="rsvp.btn_submit">Отправить ответ</button>
+          </div>
+        </div>
+        <!-- /Branch NO -->
+ 
+        <!-- Branch MAYBE -->
+        <div class="wrsvp-step wrsvp-step--hidden" id="wrsvp-branch-maybe">
+          <div class="wrsvp-closing wrsvp-closing--maybe">
+            <p class="wrsvp-closing-title" data-i18n="rsvp.closing_maybe_title">Надеемся, у вас получится разделить с нами этот день ❤️</p>
+            <p class="wrsvp-closing-sub" data-i18n="rsvp.closing_maybe_sub">Будем благодарны за подтверждение, как только у вас появится возможность принять решение!</p>
+            <p class="wrsvp-closing-note" data-i18n="rsvp.closing_maybe_note">Не забудьте отправить ваш ответ.</p>
+          </div>
+          <div class="wrsvp-actions">
+            <button class="wrsvp-btn" type="button" id="wrsvp-btn-submit-maybe" data-i18n="rsvp.btn_submit">Отправить ответ</button>
+          </div>
+        </div>
+        <!-- /Branch MAYBE -->
+ 
+        <!-- Success message -->
+        <div class="wrsvp-success wrsvp-step--hidden" id="wrsvp-success">
+          <div class="wrsvp-success-icon">❤️</div>
+          <p class="wrsvp-success-title" data-i18n="rsvp.success_title">Спасибо! Ваш ответ получен.</p>
+          <p class="wrsvp-success-sub" data-i18n="rsvp.success_sub">До скорой встречи — 19 июня 2026!</p>
+        </div>
+ 
       </div>
+      <!-- /FORM -->
+ 
     </div>
-  </section>
-
+  </div>
+</section>
   <div class="wgap" aria-hidden="true"></div>
 
   <!-- ===== 8) COUNTDOWN (local time) ===== -->
@@ -1653,6 +1817,279 @@
     .wlang{ padding: 7px 9px; }
   }
 
+  <!-- ============================================================
+     RSVP STYLES  (вставить внутрь существующего <style> блока,
+     или оставить отдельным тегом — оба варианта работают)
+     ============================================================ -->
+/* ---- layout ---- */
+.wform-sub { margin-bottom: 28px; text-align: center; }
+.wform-sub-title {
+  font-family: "Bella Script CYR", cursive;
+  font-size: clamp(28px, 4vw, 42px);
+  color: var(--accent);
+  margin: 0 0 10px;
+  line-height: 1.1;
+}
+.wform-sub-text {
+  font-size: var(--fs-body);
+  color: #5a5a5a;
+  line-height: 1.65;
+  max-width: 580px;
+  margin: 0 auto 18px;
+}
+.wform-deadline {
+  font-size: var(--fs-md);
+  color: #6b6b6b;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  align-items: baseline;
+}
+.wform-date {
+  font-family: "Bella Script CYR", cursive;
+  font-size: clamp(28px, 4vw, 42px);
+  color: var(--accent);
+  line-height: 1;
+}
+ 
+/* ---- wrsvp container ---- */
+.wrsvp {
+  max-width: 600px;
+  margin: 0 auto;
+}
+ 
+/* ---- step visibility ---- */
+.wrsvp-step--hidden { display: none !important; }
+.wrsvp-nested--hidden { display: none !important; }
+ 
+/* ---- row 2 cols ---- */
+.wrsvp-row--2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media (max-width: 440px) {
+  .wrsvp-row--2 { grid-template-columns: 1fr; }
+}
+ 
+/* ---- field ---- */
+.wrsvp-field { display: flex; flex-direction: column; gap: 6px; }
+.wrsvp-field--mt { margin-top: 22px; }
+ 
+.wrsvp-label {
+  font-size: var(--fs-md);
+  font-weight: 600;
+  color: #2a2a2a;
+  letter-spacing: .02em;
+}
+.wrsvp-req { color: var(--accent); }
+.wrsvp-hint {
+  font-size: var(--fs-sm);
+  color: #8a8a8a;
+  margin: -2px 0 4px;
+}
+ 
+/* ---- inputs ---- */
+.wrsvp-input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1.5px solid rgba(0,0,0,.14);
+  border-radius: 12px;
+  background: #fff;
+  font-family: "Cera Pro", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: var(--fs-body);
+  color: var(--text);
+  transition: border-color .18s ease, box-shadow .18s ease;
+  outline: none;
+  -webkit-appearance: none;
+}
+.wrsvp-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(193,74,99,.13);
+}
+.wrsvp-input:disabled { background: #f5f5f5; cursor: not-allowed; color: #aaa; }
+ 
+.wrsvp-textarea { resize: vertical; min-height: 80px; }
+ 
+.wrsvp-input--inline {
+  width: auto;
+  flex: 1 1 120px;
+  min-width: 80px;
+  padding: 6px 10px;
+  font-size: var(--fs-sm);
+  border-radius: 8px;
+}
+ 
+/* ---- error ---- */
+.wrsvp-err {
+  font-size: var(--fs-sm);
+  color: var(--accent);
+  display: none;
+  margin-top: 2px;
+}
+.wrsvp-field.has-error .wrsvp-err { display: block; }
+.wrsvp-field.has-error .wrsvp-input { border-color: var(--accent); }
+ 
+/* ---- radios ---- */
+.wrsvp-radios { display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
+ 
+.wrsvp-radio {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+.wrsvp-radio input[type="radio"] { display: none; }
+ 
+.wrsvp-radio-box {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  border: 2px solid rgba(0,0,0,.22);
+  flex: 0 0 20px;
+  margin-top: 1px;
+  transition: border-color .15s ease, background .15s ease;
+  position: relative;
+}
+.wrsvp-radio-box::after {
+  content: "";
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%,-50%) scale(0);
+  transition: transform .15s ease;
+}
+.wrsvp-radio input:checked ~ .wrsvp-radio-box {
+  border-color: var(--accent);
+}
+.wrsvp-radio input:checked ~ .wrsvp-radio-box::after {
+  transform: translate(-50%,-50%) scale(1);
+}
+.wrsvp-radio-text {
+  font-size: var(--fs-body);
+  color: #3c3c3c;
+  line-height: 1.45;
+}
+ 
+/* ---- checkboxes ---- */
+.wrsvp-checks { display: flex; flex-direction: column; gap: 10px; margin-top: 4px; }
+ 
+.wrsvp-check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+  flex-wrap: wrap;
+}
+.wrsvp-check input[type="checkbox"] { display: none; }
+ 
+.wrsvp-check-box {
+  width: 20px; height: 20px;
+  border-radius: 6px;
+  border: 2px solid rgba(0,0,0,.22);
+  flex: 0 0 20px;
+  transition: border-color .15s ease, background .15s ease;
+  position: relative;
+}
+.wrsvp-check-box::after {
+  content: "";
+  width: 10px; height: 6px;
+  border-left: 2px solid #fff;
+  border-bottom: 2px solid #fff;
+  transform: rotate(-45deg) scale(0);
+  position: absolute;
+  top: 4px; left: 3px;
+  transition: transform .15s ease;
+}
+.wrsvp-check input:checked ~ .wrsvp-check-box {
+  border-color: var(--accent);
+  background: var(--accent);
+}
+.wrsvp-check input:checked ~ .wrsvp-check-box::after {
+  transform: rotate(-45deg) scale(1);
+}
+.wrsvp-check span:not(.wrsvp-check-box) {
+  font-size: var(--fs-body);
+  color: #3c3c3c;
+}
+ 
+/* ---- closing text ---- */
+.wrsvp-closing {
+  margin-top: 28px;
+  padding: 24px;
+  border-radius: 16px;
+  background: rgba(193,74,99,.06);
+  border: 1px solid rgba(193,74,99,.18);
+  text-align: center;
+}
+.wrsvp-closing-title {
+  font-size: var(--fs-body);
+  font-weight: 600;
+  color: #2a2a2a;
+  margin: 0 0 8px;
+  line-height: 1.55;
+}
+.wrsvp-closing-sub {
+  font-size: var(--fs-body);
+  color: #3c3c3c;
+  margin: 0 0 8px;
+  line-height: 1.55;
+}
+.wrsvp-closing-note {
+  font-size: var(--fs-sm);
+  color: #8a8a8a;
+  margin: 0;
+}
+ 
+/* ---- button ---- */
+.wrsvp-actions { margin-top: 24px; display: flex; justify-content: center; }
+ 
+.wrsvp-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 36px;
+  border-radius: 999px;
+  border: 2px solid var(--accent);
+  background: var(--accent);
+  color: #fff;
+  font-family: "Cera Pro", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-size: var(--fs-body);
+  font-weight: 600;
+  letter-spacing: .04em;
+  cursor: pointer;
+  transition: transform .15s ease, background .15s ease, box-shadow .15s ease;
+}
+.wrsvp-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(193,74,99,.28);
+  background: #a83a52;
+}
+.wrsvp-btn:active { transform: translateY(0); }
+ 
+/* ---- success ---- */
+.wrsvp-success {
+  text-align: center;
+  padding: 44px 20px;
+}
+.wrsvp-success-icon { font-size: 48px; margin-bottom: 18px; }
+.wrsvp-success-title {
+  font-family: "Lighthaus", Georgia, serif;
+  font-size: var(--fs-h3);
+  color: #2a2a2a;
+  margin: 0 0 10px;
+  letter-spacing: .04em;
+}
+.wrsvp-success-sub {
+  font-size: var(--fs-body);
+  color: #6b6b6b;
+  margin: 0;
+}
+
 </style>
 
 <script>
@@ -1731,6 +2168,50 @@ document.addEventListener("DOMContentLoaded", function(){
       "final.top": "До скорой встречи!",
       "final.love": "С любовью,<br>Елизавета и Сергей!"
     },
+    "rsvp.sub_title": "Мы с нетерпением ждём встречи с вами!",
+  "rsvp.sub_text": "Если вы планируете прийти с гостем или у вас есть особые диетические предпочтения, пожалуйста, укажите это в форме ниже.",
+  "rsvp.deadline_pre": "Пожалуйста, подтвердите своё присутствие до",
+  "rsvp.deadline_date": "25 мая 2026 года",
+  "rsvp.fname": "Имя",
+  "rsvp.lname": "Фамилия",
+  "rsvp.attending_q": "Будете ли вы присутствовать?",
+  "rsvp.attending_yes": "Конечно да!",
+  "rsvp.attending_no": "К сожалению, нет",
+  "rsvp.attending_maybe": "Пока не знаю. Дам ответ чуть позже",
+  "rsvp.diet_q": "Есть ли у вас ограничения в питании или аллергии?",
+  "rsvp.diet_ph": "Например: нет глютена, орехи…",
+  "rsvp.drinks_q": "Отметьте предпочтения по напиткам",
+  "rsvp.drinks_hint": "Можно выбрать несколько вариантов",
+  "rsvp.drink_sparkling": "Игристое",
+  "rsvp.drink_white": "Вино белое",
+  "rsvp.drink_red": "Вино красное",
+  "rsvp.drink_cognac": "Коньяк",
+  "rsvp.drink_whisky": "Виски",
+  "rsvp.drink_vodka": "Водка",
+  "rsvp.drink_none": "Не пью алкоголь",
+  "rsvp.drink_other": "Другое:",
+  "rsvp.drink_other_ph": "Укажите…",
+  "rsvp.plus_one_q": "Приведёте ли вы с собой гостя?",
+  "rsvp.yes": "Да",
+  "rsvp.no": "Нет",
+  "rsvp.guest_diet_q": "Есть ли у вашего гостя ограничения в питании или аллергии?",
+  "rsvp.guest_drinks_q": "Отметьте предпочтения вашего гостя по напиткам",
+  "rsvp.comments_q": "Есть ли у вас комментарии или вопросы к нам? ❤️",
+  "rsvp.closing_yes_title": "Мы счастливы, что вы будете с нами в этот день ❤️",
+  "rsvp.closing_yes_sub": "Ждём вас 19 июня 2026 года!",
+  "rsvp.closing_yes_note": "Не забудьте отправить ваш ответ.",
+  "rsvp.closing_no_title": "Нам очень жаль, что вы не сможете разделить с нами этот день, но мы благодарны за ваш ответ ❤️",
+  "rsvp.closing_no_sub": "Давайте обязательно встретимся и отпразднуем вместе позже!",
+  "rsvp.closing_no_note": "Не забудьте отправить ваш ответ.",
+  "rsvp.closing_maybe_title": "Надеемся, у вас получится разделить с нами этот день ❤️",
+  "rsvp.closing_maybe_sub": "Будем благодарны за подтверждение, как только у вас появится возможность!",
+  "rsvp.closing_maybe_note": "Не забудьте отправить ваш ответ.",
+  "rsvp.btn_next": "Далее →",
+  "rsvp.btn_submit": "Отправить ответ",
+  "rsvp.err_required": "Обязательное поле",
+  "rsvp.err_drinks": "Пожалуйста, выберите хотя бы один вариант",
+  "rsvp.success_title": "Спасибо! Ваш ответ получен.",
+  "rsvp.success_sub": "До скорой встречи — 19 июня 2026!",
 
     en: {
       "hero.name1": "SERGEI",
@@ -1800,7 +2281,51 @@ document.addEventListener("DOMContentLoaded", function(){
 "contacts.desc.coordinator": "Coordinator (for any organizational questions on the wedding day)",
 
       "final.top": "See you soon!",
-      "final.love": "With love,<br>Sergei & Elizaveta!"
+      "final.love": "With love,<br>Sergei & Elizaveta!", 
+      "rsvp.sub_title": "We can't wait to see you!",
+  "rsvp.sub_text": "If you're planning to bring a plus-one or have any dietary preferences, please let us know in the form below.",
+  "rsvp.deadline_pre": "Please confirm your attendance by",
+  "rsvp.deadline_date": "May 25, 2026",
+  "rsvp.fname": "First name",
+  "rsvp.lname": "Last name",
+  "rsvp.attending_q": "Will you be attending?",
+  "rsvp.attending_yes": "Of course, yes!",
+  "rsvp.attending_no": "Unfortunately, no",
+  "rsvp.attending_maybe": "Not sure yet — I'll let you know soon",
+  "rsvp.diet_q": "Do you have any dietary restrictions or allergies?",
+  "rsvp.diet_ph": "e.g. gluten-free, nuts…",
+  "rsvp.drinks_q": "Select your drink preferences",
+  "rsvp.drinks_hint": "You may choose multiple options",
+  "rsvp.drink_sparkling": "Sparkling wine",
+  "rsvp.drink_white": "White wine",
+  "rsvp.drink_red": "Red wine",
+  "rsvp.drink_cognac": "Cognac",
+  "rsvp.drink_whisky": "Whisky",
+  "rsvp.drink_vodka": "Vodka",
+  "rsvp.drink_none": "I don't drink alcohol",
+  "rsvp.drink_other": "Other:",
+  "rsvp.drink_other_ph": "Please specify…",
+  "rsvp.plus_one_q": "Will you be bringing a plus-one?",
+  "rsvp.yes": "Yes",
+  "rsvp.no": "No",
+  "rsvp.guest_diet_q": "Does your guest have any dietary restrictions or allergies?",
+  "rsvp.guest_drinks_q": "Select your guest's drink preferences",
+  "rsvp.comments_q": "Any comments or questions for us? ❤️",
+  "rsvp.closing_yes_title": "We're so happy you'll be celebrating with us ❤️",
+  "rsvp.closing_yes_sub": "See you on June 19, 2026!",
+  "rsvp.closing_yes_note": "Don't forget to submit your response.",
+  "rsvp.closing_no_title": "We're sorry you won't be able to join us, but we're grateful for your response ❤️",
+  "rsvp.closing_no_sub": "Let's definitely get together and celebrate later!",
+  "rsvp.closing_no_note": "Don't forget to submit your response.",
+  "rsvp.closing_maybe_title": "We hope you'll be able to join us ❤️",
+  "rsvp.closing_maybe_sub": "We'd love to hear from you as soon as you're able to decide!",
+  "rsvp.closing_maybe_note": "Don't forget to submit your response.",
+  "rsvp.btn_next": "Next →",
+  "rsvp.btn_submit": "Submit",
+  "rsvp.err_required": "Required field",
+  "rsvp.err_drinks": "Please select at least one option",
+  "rsvp.success_title": "Thank you! Your response has been received.",
+  "rsvp.success_sub": "See you soon — June 19, 2026!",
     }
   };
 
@@ -1950,6 +2475,240 @@ d3.textContent = d[1];
       if (!e.target.closest('.whead')) closeMenu();
     });
   }
+  (function(){
+  const ENDPOINT = "https://formspree.io/f/mkopjzpz";
+ 
+  // elements
+  const stepName      = document.getElementById('wrsvp-step-name');
+  const branchYes     = document.getElementById('wrsvp-branch-yes');
+  const branchNo      = document.getElementById('wrsvp-branch-no');
+  const branchMaybe   = document.getElementById('wrsvp-branch-maybe');
+  const branchGuest   = document.getElementById('wrsvp-branch-guest');
+  const successBox    = document.getElementById('wrsvp-success');
+ 
+  const btnNext1      = document.getElementById('wrsvp-btn-next1');
+  const btnSubmitYes  = document.getElementById('wrsvp-btn-submit-yes');
+  const btnSubmitNo   = document.getElementById('wrsvp-btn-submit-no');
+  const btnSubmitMaybe= document.getElementById('wrsvp-btn-submit-maybe');
+ 
+  const fFname        = document.getElementById('rf-fname');
+  const fLname        = document.getElementById('rf-lname');
+ 
+  // "Other drink" toggles
+  function bindOtherDrink(cbId, inputId){
+    const cb = document.getElementById(cbId);
+    const inp = document.getElementById(inputId);
+    if(!cb || !inp) return;
+    cb.addEventListener('change', () => {
+      inp.disabled = !cb.checked;
+      if(cb.checked) inp.focus();
+      else inp.value = '';
+    });
+  }
+  bindOtherDrink('rf-drinks-other-cb', 'rf-drinks-other-text');
+  bindOtherDrink('rf-guest-drinks-other-cb', 'rf-guest-drinks-other-text');
+ 
+  // plus-one branch toggle
+  document.querySelectorAll('input[name="plus_one"]').forEach(r => {
+    r.addEventListener('change', () => {
+      if(r.value === 'yes' && r.checked){
+        branchGuest.classList.remove('wrsvp-nested--hidden');
+      } else if(r.value === 'no' && r.checked){
+        branchGuest.classList.add('wrsvp-nested--hidden');
+        // clear guest checkboxes
+        document.querySelectorAll('input[name="guest_drinks"]').forEach(c => c.checked = false);
+        const gtxt = document.getElementById('rf-guest-drinks-other-text');
+        if(gtxt){ gtxt.disabled = true; gtxt.value = ''; }
+      }
+    });
+  });
+ 
+  // helpers
+  function fieldErr(el, show){
+    const field = el.closest('.wrsvp-field');
+    if(!field) return;
+    field.classList.toggle('has-error', show);
+  }
+ 
+  function validateStep1(){
+    let ok = true;
+    if(!fFname.value.trim()){ fieldErr(fFname, true); ok = false; } else { fieldErr(fFname, false); }
+    if(!fLname.value.trim()){ fieldErr(fLname, true); ok = false; } else { fieldErr(fLname, false); }
+ 
+    const att = document.querySelector('input[name="attending"]:checked');
+    const attField = document.querySelector('.wrsvp-radios').closest('.wrsvp-field');
+    if(!att){ attField.classList.add('has-error'); ok = false; } else { attField.classList.remove('has-error'); }
+ 
+    return { ok, attending: att ? att.value : null };
+  }
+ 
+  function validateDrinks(name, errId){
+    const checked = document.querySelectorAll(`input[name="${name}"]:checked`);
+    const errEl = document.getElementById(errId);
+    if(checked.length === 0){
+      if(errEl) errEl.style.display = 'block';
+      return false;
+    }
+    if(errEl) errEl.style.display = 'none';
+    return true;
+  }
+ 
+  function validatePlusOne(){
+    const r = document.querySelector('input[name="plus_one"]:checked');
+    const errEl = document.getElementById('wrsvp-err-plusone');
+    if(!r){
+      if(errEl) errEl.style.display = 'block';
+      return false;
+    }
+    if(errEl) errEl.style.display = 'none';
+    return true;
+  }
+ 
+  function scrollToForm(){
+    const el = document.getElementById('rsvp');
+    if(el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+ 
+  function hide(el){ el.classList.add('wrsvp-step--hidden'); }
+  function show(el){ el.classList.remove('wrsvp-step--hidden'); }
+ 
+  // Step 1 → branch
+  if(btnNext1){
+    btnNext1.addEventListener('click', () => {
+      const { ok, attending } = validateStep1();
+      if(!ok) return;
+ 
+      hide(stepName);
+      if(attending === 'yes')   { show(branchYes); }
+      if(attending === 'no')    { show(branchNo); }
+      if(attending === 'maybe') { show(branchMaybe); }
+      scrollToForm();
+    });
+  }
+ 
+  // collect form data
+  function collectData(attending){
+    const data = {
+      attending,
+      first_name: fFname.value.trim(),
+      last_name:  fLname.value.trim(),
+    };
+ 
+    if(attending === 'yes'){
+      data.diet = document.getElementById('rf-diet').value.trim();
+ 
+      const drinks = [...document.querySelectorAll('input[name="drinks"]:checked')].map(c => c.value);
+      const otherDrinkText = document.getElementById('rf-drinks-other-text').value.trim();
+      if(otherDrinkText) drinks.push('other: ' + otherDrinkText);
+      data.drinks = drinks.join(', ');
+ 
+      const plusOne = document.querySelector('input[name="plus_one"]:checked');
+      data.plus_one = plusOne ? plusOne.value : '';
+ 
+      if(plusOne && plusOne.value === 'yes'){
+        data.guest_diet = document.getElementById('rf-guest-diet').value.trim();
+        const gdrinks = [...document.querySelectorAll('input[name="guest_drinks"]:checked')].map(c => c.value);
+        const gOtherText = document.getElementById('rf-guest-drinks-other-text').value.trim();
+        if(gOtherText) gdrinks.push('other: ' + gOtherText);
+        data.guest_drinks = gdrinks.join(', ');
+      }
+ 
+      data.comments = document.getElementById('rf-comments').value.trim();
+    }
+ 
+    return data;
+  }
+ 
+  async function submitToFormspree(data){
+    const btn = document.querySelector('.wrsvp-btn[id^="wrsvp-btn-submit"]');
+    try {
+      const resp = await fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(data)
+      });
+      if(resp.ok){
+        hide(branchYes); hide(branchNo); hide(branchMaybe);
+        show(successBox);
+        scrollToForm();
+      } else {
+        alert('Что-то пошло не так. Попробуйте ещё раз.');
+      }
+    } catch(e){
+      alert('Ошибка соединения. Проверьте интернет и попробуйте ещё раз.');
+    }
+  }
+ 
+  // Submit YES
+  if(btnSubmitYes){
+    btnSubmitYes.addEventListener('click', async () => {
+      let ok = true;
+      if(!validateDrinks('drinks', 'wrsvp-err-drinks')) ok = false;
+      if(!validatePlusOne()) ok = false;
+ 
+      const plusOne = document.querySelector('input[name="plus_one"]:checked');
+      if(plusOne && plusOne.value === 'yes'){
+        if(!validateDrinks('guest_drinks', 'wrsvp-err-guest-drinks')) ok = false;
+      }
+      if(!ok) return;
+ 
+      btnSubmitYes.textContent = '…';
+      btnSubmitYes.disabled = true;
+      await submitToFormspree(collectData('yes'));
+      btnSubmitYes.disabled = false;
+    });
+  }
+ 
+  // Submit NO
+  if(btnSubmitNo){
+    btnSubmitNo.addEventListener('click', async () => {
+      btnSubmitNo.textContent = '…';
+      btnSubmitNo.disabled = true;
+      await submitToFormspree(collectData('no'));
+      btnSubmitNo.disabled = false;
+    });
+  }
+ 
+  // Submit MAYBE
+  if(btnSubmitMaybe){
+    btnSubmitMaybe.addEventListener('click', async () => {
+      btnSubmitMaybe.textContent = '…';
+      btnSubmitMaybe.disabled = true;
+      await submitToFormspree(collectData('maybe'));
+      btnSubmitMaybe.disabled = false;
+    });
+  }
+ 
+  // also update placeholder texts when language switches
+  // (placeholders are handled via data-i18n-ph — extend applyTranslations)
+  const _origApply = window.__rsvpLangPatch;
+  function patchPlaceholders(lang){
+    const dict = { ru: {
+      "rsvp.diet_ph": "Например: нет глютена, орехи…",
+      "rsvp.drink_other_ph": "Укажите…"
+    }, en: {
+      "rsvp.diet_ph": "e.g. gluten-free, nuts…",
+      "rsvp.drink_other_ph": "Please specify…"
+    }};
+    const d = dict[lang] || dict.ru;
+    document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+      const key = el.getAttribute('data-i18n-ph');
+      if(d[key]) el.placeholder = d[key];
+    });
+  }
+ 
+  // Patch the existing applyTranslations to also call patchPlaceholders
+  // Wait for it to be defined, then wrap it
+  setTimeout(() => {
+    // applyTranslations is defined inside DOMContentLoaded closure,
+    // so we piggyback via the language buttons
+    document.querySelectorAll('.wlang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        patchPlaceholders(btn.getAttribute('data-lang') || 'ru');
+      });
+    });
+    patchPlaceholders('ru'); // init
+  }, 0);
 
 });
 </script>
