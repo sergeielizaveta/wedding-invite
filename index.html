@@ -290,10 +290,9 @@
 
         <div class="wcount-col">
           <div class="wcount-digits">
-            <div class="wcount-box" id="cd-d1">0</div>
-            <div class="wcount-box" id="cd-d2">0</div>
-            <div class="wcount-box" id="cd-d3">0</div>
-          </div>
+  <div class="wcount-box" id="cd-d2">0</div>
+  <div class="wcount-box" id="cd-d3">0</div>
+</div>
           <div class="wcount-label" data-i18n="count.days">Дней</div>
         </div>
 
@@ -1876,7 +1875,6 @@ if (iframe && dict["rsvp.form_url"]) {
   // ==========================
   const target = new Date(2026, 5, 19, 15, 0, 0);
 
-  const d1 = document.getElementById('cd-d1');
   const d2 = document.getElementById('cd-d2');
   const d3 = document.getElementById('cd-d3');
   const h1 = document.getElementById('cd-h1');
@@ -1884,7 +1882,7 @@ if (iframe && dict["rsvp.form_url"]) {
   const m1 = document.getElementById('cd-m1');
   const m2 = document.getElementById('cd-m2');
 
-  if(d1 && d2 && d3 && h1 && h2 && m1 && m2){
+  if(d2 && d3 && h1 && h2 && m1 && m2){
     function pad2(n){ return String(n).padStart(2,'0'); }
     function pad3(n){ return String(n).padStart(3,'0'); }
 
@@ -1903,13 +1901,13 @@ if (iframe && dict["rsvp.form_url"]) {
       const hours = Math.floor(diff / 3600000) % 24;
       const minutes = Math.floor(diff / 60000) % 60;
 
-      const d = pad3(days);
+      const d = pad2(days);
       const h = pad2(hours);
       const m = pad2(minutes);
 
-      d1.textContent = d[0];
-      d2.textContent = d[1];
-      d3.textContent = d[2];
+     
+      d2.textContent = d[0];
+d3.textContent = d[1];
 
       h1.textContent = h[0];
       h2.textContent = h[1];
