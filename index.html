@@ -191,7 +191,7 @@
         </div>
 
         <div class="wtimeline-item">
-          <div class="wtimeline-time">16:20</div>
+          <div class="wtimeline-time">16:00</div>
           <div class="wtimeline-text" data-i18n="timing.item3">Банкет</div>
         </div>
 
@@ -289,12 +289,13 @@
       <div class="wcount-grid">
 
         <div class="wcount-col">
-  <div class="wcount-digits">
-    <div class="wcount-box" id="cd-d2">0</div>
-    <div class="wcount-box" id="cd-d3">0</div>
-  </div>
-  <div class="wcount-label" data-i18n="count.days">Дней</div>
-</div
+          <div class="wcount-digits">
+            <div class="wcount-box" id="cd-d1">0</div>
+            <div class="wcount-box" id="cd-d2">0</div>
+            <div class="wcount-box" id="cd-d3">0</div>
+          </div>
+          <div class="wcount-label" data-i18n="count.days">Дней</div>
+        </div>
 
         <div class="wcount-col">
           <div class="wcount-digits">
@@ -402,9 +403,18 @@
           </div>
 
         <div class="wcont-card wcont-card--soft" data-anim="fade">
-            <div class="wcont-name" data-i18n="contacts.name.coordinator">Анастасия</div>
+            <div class="wcont-name" data-i18n="contacts.name.coordinator">Имя</div>
 
           <div class="wcont-desc" data-i18n="contacts.desc.coordinator">Координатор (по организационным вопросам в день свадьбы)</div>
+
+            <a class="wcont-row" href="https://t.me/kapeliza" target="_blank" rel="noopener noreferrer">
+              <span class="wcont-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="30" height="30" fill="currentColor">
+                  <path d="M9.993 15.674 9.8 18.38c.279 0 .4-.12.545-.264l1.309-1.257 2.714 1.987c.498.275.855.13.98-.46l1.777-8.328c.164-.777-.28-1.08-.762-.902L6.22 12.02c-.742.29-.731.707-.126.895l2.635.823 6.11-3.855c.287-.19.55-.085 .334 .106"/>
+                </svg>
+              </span>
+              <span class="wcont-link">@kapeliza</span>
+            </a>
 
             <a class="wcont-row" href="tel:+79524416956">
               <span class="wcont-ico" aria-hidden="true">
@@ -412,7 +422,7 @@
                   <path d="M6.62 10.79a15.05 15.05 0 0 0 6.59 6.59l2.2-2.2a1 1 0 0 1 1.01-.24c1.12.37 2.33.57 3.58.57a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1C10.85 21 3 13.15 3 3a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.25.2 2.46.57 3.58a1 1 0 0 1-.24 1.01l-2.2 2.2Z"/>
                 </svg>
               </span>
-              <span class="wcont-text">+7 930 277 1460</span>
+              <span class="wcont-text">+7 952 441 6956</span>
             </a>
           </div>
 
@@ -1672,7 +1682,7 @@ document.addEventListener("DOMContentLoaded", function(){
       "contacts.name.elizaveta": "Елизавета",
 "contacts.name.sergei": "Сергей",
 "contacts.name.alexey": "Алексей",
-"contacts.name.coordinator": "Анастасия",
+"contacts.name.coordinator": "Имя",
 
       "hero.top": "Мы женимся!",
       "hero.cap_left": "— планы на июнь?",
@@ -1702,9 +1712,9 @@ document.addEventListener("DOMContentLoaded", function(){
       "timing.item4": "Завершение вечера и дискотека",
 
       "dress.title": "ДРЕСС-КОД",
-      "dress.text": "Для нас самое главное — ваше присутствие! Мы не устанавливаем строгую цветовую гамму праздника, но будем очень благодарны, если вы учтёте несколько пожеланий:",
+      "dress.text": "Для нас самое главное — ваше присутствие 🩷 Мы не устанавливаем строгую цветовую гамму праздника, но будем очень благодарны, если вы учтёте несколько пожеланий:",
       "dress.women_label": "— Для женщин:",
-      "dress.women_text": "просим избегать слишком ярких цветов (например, ярко-красного) и чёрного. И будем признательны, если в белом в этот день будет блистать только невеста.",
+      "dress.women_text": "просим избегать слишком ярких цветов (например, ярко-красного) и чёрного. И будем признательны, если в белом в этот день будет блистать только невеста ✨",
       "dress.men_label": "— Для мужчин:",
       "dress.men_text": "белый и чёрный допустимы, однако просим отказаться от слишком ярких оттенков.",
 
@@ -1743,7 +1753,7 @@ document.addEventListener("DOMContentLoaded", function(){
       "contacts.name.elizaveta": "Elizaveta",
 "contacts.name.sergei": "Sergei",
 "contacts.name.alexey": "Alexey",
-"contacts.name.coordinator": "Anastasia",
+"contacts.name.coordinator": "Name",
 
       "hero.top": "We’re getting married!",
       "hero.cap_left": "— any plans for June?",
@@ -1873,48 +1883,51 @@ if (iframe && dict["rsvp.form_url"]) {
   // ==========================
   const target = new Date(2026, 5, 19, 15, 0, 0);
 
+  const d1 = document.getElementById('cd-d1');
   const d2 = document.getElementById('cd-d2');
-const d3 = document.getElementById('cd-d3');
-const h1 = document.getElementById('cd-h1');
-const h2 = document.getElementById('cd-h2');
-const m1 = document.getElementById('cd-m1');
-const m2 = document.getElementById('cd-m2');
+  const d3 = document.getElementById('cd-d3');
+  const h1 = document.getElementById('cd-h1');
+  const h2 = document.getElementById('cd-h2');
+  const m1 = document.getElementById('cd-m1');
+  const m2 = document.getElementById('cd-m2');
 
-if(d2 && d3 && h1 && h2 && m1 && m2){
-  function pad2(n){ return String(n).padStart(2,'0'); }
+  if(d1 && d2 && d3 && h1 && h2 && m1 && m2){
+    function pad2(n){ return String(n).padStart(2,'0'); }
+    function pad3(n){ return String(n).padStart(3,'0'); }
 
-  function update(){
-    const now = new Date();
-    const diff = target - now;
+    function update(){
+      const now = new Date();
+      const diff = target - now;
 
-    if(diff <= 0){
-      d2.textContent = d3.textContent = '0';
-      h1.textContent = h2.textContent = '0';
-      m1.textContent = m2.textContent = '0';
-      return;
+      if(diff <= 0){
+        d1.textContent = d2.textContent = d3.textContent = '0';
+        h1.textContent = h2.textContent = '0';
+        m1.textContent = m2.textContent = '0';
+        return;
+      }
+
+      const days = Math.floor(diff / 86400000);
+      const hours = Math.floor(diff / 3600000) % 24;
+      const minutes = Math.floor(diff / 60000) % 60;
+
+      const d = pad3(days);
+      const h = pad2(hours);
+      const m = pad2(minutes);
+
+      d1.textContent = d[0];
+      d2.textContent = d[1];
+      d3.textContent = d[2];
+
+      h1.textContent = h[0];
+      h2.textContent = h[1];
+
+      m1.textContent = m[0];
+      m2.textContent = m[1];
     }
 
-    const days = Math.floor(diff / 86400000);
-    const hours = Math.floor(diff / 3600000) % 24;
-    const minutes = Math.floor(diff / 60000) % 60;
-
-    const d = pad2(days);
-    const h = pad2(hours);
-    const m = pad2(minutes);
-
-    d2.textContent = d[0];
-    d3.textContent = d[1];
-
-    h1.textContent = h[0];
-    h2.textContent = h[1];
-
-    m1.textContent = m[0];
-    m2.textContent = m[1];
+    update();
+    setInterval(update, 1000);
   }
-
-  update();
-  setInterval(update, 1000);
-}
 
   // ==========================
   // Mobile burger menu
