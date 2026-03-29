@@ -208,8 +208,9 @@
         <div class="wform-heading" data-i18n="rsvp.title">АНКЕТА ГОСТЯ</div>
 
         <div class="wform-sub">
-          <p class="wform-sub-title" data-i18n="rsvp.sub_title">Мы с нетерпением ждём встречи с вами!</p>
-          <p class="wform-sub-text" data-i18n="rsvp.sub_text">Если вы планируете прийти с гостем или у вас есть особые диетические предпочтения, пожалуйста, укажите это в форме ниже.</p>
+          <p class="wform-sub-text" data-i18n="rsvp.sub_text">
+  Мы с нетерпением ждём встречи с вами! Если вы планируете прийти с гостем или у вас есть особые диетические предпочтения, пожалуйста, укажите это в форме ниже.
+</p>
           <div class="wform-deadline">
             <span data-i18n="rsvp.deadline_pre">Пожалуйста, подтвердите своё присутствие до</span>
             <span class="wform-date" data-i18n="rsvp.deadline_date">25 мая 2026 года</span>
@@ -637,10 +638,26 @@
   .wform-wrap{ max-width:680px; margin:0 auto; text-align:center; }
   .wform-heading{ margin-bottom:26px; }
   .wform-sub{ margin-bottom:28px; text-align:center; }
-  .wform-sub-title{ font-family:"Bella Script CYR",cursive; font-size:clamp(28px,4vw,42px); color:var(--accent); margin:0 0 10px; line-height:1.1; }
   .wform-sub-text{ font-size:var(--fs-body); color:#5a5a5a; line-height:1.65; max-width:580px; margin:0 auto 18px; }
-  .wform-deadline{ font-size:var(--fs-md); color:#6b6b6b; display:flex; flex-wrap:wrap; gap:6px; justify-content:center; align-items:baseline; }
-  .wform-date{ font-family:"Bella Script CYR",cursive; font-size:clamp(28px,4vw,42px); color:var(--accent); line-height:1; }
+ .wform-deadline{
+  font-size:var(--fs-md);
+  color:#6b6b6b;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+}
+
+.wform-date{
+  font-family:"Bella Script CYR",cursive;
+  font-size:var(--fs-time);
+  color:var(--accent);
+  line-height:.4;
+  display:block;
+  text-align:center;
+}
 
   /* RSVP */
   .wrsvp{ max-width:600px; margin:0 auto; }
@@ -809,8 +826,7 @@ document.addEventListener("DOMContentLoaded", function(){
       "dress.men_label":"— Для мужчин:",
       "dress.men_text":"белый и чёрный допустимы, однако просим отказаться от слишком ярких оттенков.",
       "rsvp.title":"АНКЕТА ГОСТЯ",
-      "rsvp.sub_title":"Мы с нетерпением ждём встречи с вами!",
-      "rsvp.sub_text":"Если вы планируете прийти с гостем или у вас есть особые диетические предпочтения, пожалуйста, укажите это в форме ниже.",
+    "rsvp.sub_text":"Мы с нетерпением ждём встречи с вами! Если вы планируете прийти с гостем или у вас есть особые диетические предпочтения, пожалуйста, укажите это в форме ниже.",
       "rsvp.deadline_pre":"Пожалуйста, подтвердите своё присутствие до",
       "rsvp.deadline_date":"25 мая 2026 года",
       "rsvp.fname":"Имя","rsvp.lname":"Фамилия",
@@ -870,8 +886,7 @@ document.addEventListener("DOMContentLoaded", function(){
       "dress.men_label":"— For men:",
       "dress.men_text":"white and black are fine, but please avoid overly bright shades.",
       "rsvp.title":"GUEST FORM",
-      "rsvp.sub_title":"We can't wait to see you!",
-      "rsvp.sub_text":"If you're planning to bring a plus-one or have any dietary preferences, please let us know in the form below.",
+      "rsvp.sub_text":"We can't wait to see you! If you're planning to bring a plus-one or have any dietary preferences, please let us know in the form below.",
       "rsvp.deadline_pre":"Please confirm your attendance by",
       "rsvp.deadline_date":"May 25, 2026",
       "rsvp.fname":"First name","rsvp.lname":"Last name",
